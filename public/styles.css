@@ -19,9 +19,10 @@ body.dialog-open { overflow: hidden; }
 .topbar { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 22px; border-bottom: 1px solid #e9e6df; }
 .brand { display: flex; gap: 10px; align-items: center; padding: 0; border: 0; color: var(--navy); background: transparent; letter-spacing: .16em; font: 700 .88rem 'DM Sans',system-ui,sans-serif; cursor: pointer; }.brand:hover { color: #82652f; }
 .brand-dot { color: var(--gold); }
+.brand-logo { width: 32px; height: 32px; object-fit: contain; }.brand-name { letter-spacing: .14em; }
+.intro-logo { width: min(52%, 260px); max-height: 190px; object-fit: contain; }.intro-logo-cover { width: min(44vw, 330px); filter: drop-shadow(0 3px 8px #0003); }
 .brand-mark { width: 23px; height: 23px; display: flex; gap: 3px; align-items: end; padding: 4px; border: 1px solid var(--gold); border-radius: 7px 7px 3px 3px; transform: perspective(30px) rotateY(-7deg); }
 .brand-mark span { width: 3px; background: var(--navy); border-radius: 2px; }.brand-mark span:nth-child(1) { height: 9px; }.brand-mark span:nth-child(2) { height: 14px; background: var(--gold); }.brand-mark span:nth-child(3) { height: 11px; }
-.header-note { color: var(--muted); font-size: .78rem; letter-spacing: .02em; }.status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #64a17c; box-shadow: 0 0 0 3px #e3efe6; }
 .intro { min-height: 225px; display: flex; position: relative; align-items: center; justify-content: space-between; padding: 25px 8px 18px; overflow: hidden; }
 .intro-copy { position: relative; z-index: 1; max-width: 600px; animation: rise-in .8s .12s both; }.eyebrow { margin: 0 0 10px; color: #9b7b3d; font-size: .67rem; font-weight: 700; letter-spacing: .16em; }
 h1 { margin: 0; color: var(--navy); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.2rem, 5vw, 3.45rem); line-height: 1.1; letter-spacing: -.035em; }h1 em { color: #a98543; font-weight: 600; }
@@ -45,6 +46,8 @@ h1 { margin: 0; color: var(--navy); font-family: 'Playfair Display', Georgia, se
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }.file-intro { display: none !important; } }
 @media (max-width: 620px) { .app { width: calc(100% - 28px); padding-top: 17px; }.intro { min-height: 190px; padding-left: 3px; }.orbit { right: -75px; opacity: .38; }.intro-copy { max-width: 100%; }.subtitle { max-width: 86%; font-size: .87rem; }.message { max-width: 94%; }.welcome { padding-top: 14px; }.suggestions { gap: 7px; }.suggestion { border-radius: 12px; text-align: left; }.form-footer { font-size: .67rem; }.send-button { padding: 8px 10px; } }
 .letter-content { position: relative; }
+.letter-logo { display: block; width: min(240px, 58%); max-height: 132px; margin: 0 auto 12px; object-fit: contain; }
+.letter-seal,.letter-overline,.letter-date,.letter-note,.signature { display: none; }
 .letter-portrait { position: absolute; top: 28px; right: clamp(20px,5vw,46px); width: 108px; height: 126px; border: 3px solid #fffefa; border-radius: 18px; object-fit: cover; object-position: center; box-shadow: 0 4px 16px #1729472a,0 0 0 1px #c6ac72; }
 @media (max-width: 560px) { .letter-portrait { top: 17px; right: 17px; width: 70px; height: 82px; border-radius: 14px; }.letter-seal { margin-top: 15px; }.letter-overline { max-width: 65%; margin: 0 auto; font-size: .55rem; }.letter-content h2 { max-width: 70%; margin: 7px auto 0; font-size: 1.55rem; }.letter-date { margin-bottom: 22px; } }
 .orbit { appearance: none; padding: 0; border: 0; background: transparent; cursor: pointer; }.orbit:focus-visible { outline: 2px solid var(--gold); outline-offset: -1px; border-radius: 50%; }.orbit:hover .orbit-core { box-shadow: 0 12px 32px #14284738,inset 0 0 0 2px #e3c781; }.document-list { columns: 2; column-gap: 34px; }.document-list li { break-inside: avoid; overflow-wrap: anywhere; }.corpus-content > p:not(.letter-overline) { max-width: 680px; }.corpus-content h3 { margin-top: 26px; }

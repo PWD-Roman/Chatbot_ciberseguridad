@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101d35">
-  <title>Consultas de ciberseguridad | Lex</title>
+  <title>Consultas de ciberseguridad | LEXI</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <div class="file-intro" id="file-intro" aria-hidden="true">
-    <div class="file-intro-paper"><span class="paper-seal">§</span><span class="paper-kicker">EXPEDIENTE DIGITAL</span><span class="paper-title">Investigación<br>jurídica</span><span class="paper-line"></span><span class="paper-ref">CIBERSEGURIDAD · MÉXICO</span></div>
-    <div class="file-intro-cover"><span class="cover-emblem">LEX<span>.</span></span><span class="cover-label">ABRIENDO EXPEDIENTE</span><span class="cover-rule"></span><span class="cover-number">CONSULTA DOCUMENTAL&nbsp; / &nbsp;01</span><span class="cover-corner"></span></div>
+    <div class="file-intro-paper"><img class="intro-logo" src="/img/logo_con_nombre.png" alt="LEXI, asistente jurídico"><span class="paper-kicker">EXPEDIENTE DIGITAL</span><span class="paper-title">Investigación<br>jurídica</span><span class="paper-line"></span><span class="paper-ref">CIBERSEGURIDAD · MÉXICO</span></div>
+    <div class="file-intro-cover"><img class="intro-logo intro-logo-cover" src="/img/logo_con_nombre.png" alt="LEXI, asistente jurídico"><span class="cover-label">ABRIENDO EXPEDIENTE</span><span class="cover-rule"></span><span class="cover-number">CONSULTA DOCUMENTAL&nbsp; / &nbsp;01</span><span class="cover-corner"></span></div>
     <button class="skip-intro" id="skip-intro" type="button">Saltar animación</button>
   </div>
   <div class="ambient ambient-one" aria-hidden="true"></div>
@@ -18,10 +18,9 @@
   <main class="app">
     <header class="topbar">
       <button class="brand" id="open-letter" type="button" aria-label="Abrir carta de reconocimiento">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span>LEX<span class="brand-dot">.</span></span>
+        <img class="brand-logo" src="/img/logo.png" alt="">
+        <span class="brand-name">LEXI</span>
       </button>
-      <div class="header-note"><span class="status-dot"></span> Consulta documental</div>
     </header>
     <section class="intro">
       <div class="intro-copy">
@@ -58,33 +57,26 @@
       <div class="letter-toolbar"><span>DOCUMENTO DE RECONOCIMIENTO</span><button id="close-letter" class="close-button" type="button" aria-label="Cerrar">×</button></div>
       <article class="letter-content" id="letter-content">
         
-        <div class="letter-seal" aria-hidden="true">§</div>
-        <p class="letter-overline">CONSTANCIA DE COLABORACIÓN</p>
-        
-        <p class="letter-date" id="letter-date"></p>
-        
+        <img class="letter-logo" src="/img/logo_con_nombre.png" alt="LEXI, asistente jurídico">
+        <h2 id="letter-title">LEXI</h2>
         <h3>Tecnologías y herramientas</h3>
         <ul>
-          <li><strong>JavaScript y Node.js 20 o superior:</strong> lógica del servidor y del navegador mediante módulos ES.</li>
-          <li><strong>Express:</strong> servidor web, archivos estáticos y endpoint HTTP para las consultas.</li>
-          <li><strong>OpenAI JavaScript SDK:</strong> conexión con Responses API y búsqueda directa en OpenAI Vector Store.</li>
-          <li><strong>Vector Store:</strong> recuperación semántica de fragmentos documentales; el servidor solicita hasta 12 resultados relevantes antes de generar una respuesta.</li>
-          <li><strong>JSON Schema estructurado:</strong> respuestas separadas en afirmaciones, tipo, fuente, extracto y referencias jurídicas.</li>
-          <li><strong>HTML, CSS y JavaScript del navegador:</strong> interfaz adaptable, formato Markdown seguro, animaciones y controles del chat.</li>
-          <li><strong>Python 3 y herramientas de PDF:</strong> extracción local de metadatos, inventario JSONL y, si está disponible, propiedades con Poppler <code>pdfinfo</code>.</li>
-          <li><strong>dotenv y variables de entorno:</strong> configuración local de credenciales, modelo e identificador del Vector Store.</li>
+          <li><strong>Node.js:</strong> ejecución del servidor en módulos ES y coordinación asíncrona de las solicitudes de consulta.</li>
+          <li><strong>Express:</strong> enrutamiento HTTP, publicación de recursos estáticos y exposición del endpoint de conversación.</li>
+          <li><strong>OpenAI SDK:</strong> integración con Responses API y recuperación de evidencia desde el Vector Store.</li>
+          <li><strong>Vector Store:</strong> búsqueda semántica de fragmentos documentales con límite de resultados configurable en la solicitud.</li>
+          <li><strong>Esquema JSON:</strong> contrato de salida estructurada para afirmaciones, clasificación, referencias y extractos de evidencia.</li>
+          <li><strong>HTML y CSS:</strong> estructura accesible y presentación adaptable de la interfaz de consulta.</li>
         </ul>
         <h3>Métodos y procesos aplicados</h3>
         <ol>
-          <li>Inventario de documentos PDF y extracción de metadatos útiles para identificar la fuente, su tipo, jurisdicción, páginas y huella SHA-256.</li>
-          <li>Recuperación de fragmentos relevantes desde el Vector Store antes de redactar cada respuesta.</li>
-          <li>Instrucciones de fundamentación jurídica que separan texto expreso, interpretación, recomendación y límites de verificación.</li>
-          <li>Validación en servidor de las citas: el extracto debe existir en el fragmento recuperado y los artículos citados deben aparecer en la evidencia correspondiente. Si la validación falla, la respuesta se bloquea.</li>
-          <li>Evaluaciones por casos dirigidos a artículos y pruebas automatizadas de referencias legales para detectar citas incorrectas y respuestas no sustentadas.</li>
-          <li>Revisión de calidad basada en informes de evaluación y ajustes iterativos del flujo de recuperación, generación y presentación.</li>
+          <li><strong>Preparación del corpus:</strong> inventario de archivos y normalización de metadatos de identificación, tipo documental, jurisdicción, paginación y hash SHA-256 para trazabilidad.</li>
+          <li><strong>Recuperación aumentada:</strong> consulta del Vector Store previa a la generación; los fragmentos recuperados se incorporan como evidencia delimitada para acotar la respuesta al corpus disponible.</li>
+          <li><strong>Generación controlada:</strong> instrucciones que distinguen contenido expreso de interpretación, recomendación y aspectos no verificables, con referencias asociadas a cada afirmación.</li>
+          <li><strong>Validación de evidencia en servidor:</strong> comprobación de que cada extracto se encuentre en el fragmento recuperado y de que los artículos citados estén presentes en la evidencia vinculada; las salidas que incumplen estas condiciones se rechazan.</li>
+          <li><strong>Evaluación automatizada:</strong> ejecución de casos de referencia por artículo y pruebas de consistencia de citas para detectar errores de atribución y afirmaciones sin respaldo.</li>
+          <li><strong>Iteración de calidad:</strong> análisis de resultados por caso y ajuste del flujo de recuperación, instrucciones, validadores y representación de fuentes.</li>
         </ol>
-        <p class="letter-note">Esta constancia reconoce el trabajo descrito en el desarrollo del prototipo. La aplicación ofrece apoyo de consulta documental; sus resultados deben cotejarse con las fuentes originales.</p>
-        <div class="signature"><span class="signature-line"></span><strong>Reconocimiento por el trabajo realizado</strong><span>Proyecto de chatbot jurídico documental</span></div>
       </article>
       <div class="letter-actions"><button id="print-letter" class="print-button" type="button">Imprimir / Guardar PDF</button></div>
     </section>
@@ -93,7 +85,7 @@
     <section class="letter-dialog corpus-dialog" role="dialog" aria-modal="true" aria-labelledby="corpus-title">
       <div class="letter-toolbar"><span>ACERVO Y ALCANCE DEL ASISTENTE</span><button id="close-corpus" class="close-button" type="button" aria-label="Cerrar">×</button></div>
       <article class="letter-content corpus-content">
-        <div class="letter-seal" aria-hidden="true">§</div>
+        <img class="letter-logo" src="/img/logo_con_nombre.png" alt="LEXI, asistente jurídico">
         <p class="letter-overline">DOCUMENTOS DISPONIBLES PARA CONSULTA</p>
         <h2 id="corpus-title">Acervo documental</h2>
         <p>El Vector Store del proyecto se alimentó con los siguientes archivos PDF de la carpeta de documentos:</p>

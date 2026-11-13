@@ -20,10 +20,6 @@ fileIntro.addEventListener('animationend', (event) => {
 });
 setTimeout(finishIntro, 3600);
 
-const letterDate = new Intl.DateTimeFormat('es-MX', {
-  dateStyle: 'long', timeZone: 'America/Monterrey'
-}).format(new Date());
-document.querySelector('#letter-date').textContent = letterDate;
 const openLetter = document.querySelector('#open-letter');
 const closeLetter = document.querySelector('#close-letter');
 function showLetter() {
