@@ -1,0 +1,207 @@
+# Agente de IA para Ciberseguridad Jurídica Mexicana
+
+Asistente jurídico basado en **Retrieval-Augmented Generation (RAG)**, diseñado para consultar legislación mexicana relacionada con ciberseguridad, privacidad y protección de datos personales. Utiliza OpenAI y un Vector Store para recuperar evidencia documental y generar respuestas fundamentadas en fuentes jurídicas verificables.
+
+## Objetivo
+
+Desarrollar un asistente especializado que permita consultar documentos jurídicos mediante lenguaje natural, proporcionando respuestas claras y respaldadas por fuentes documentales.
+
+El proyecto prioriza la precisión jurídica, la trazabilidad de las referencias y la prevención de información no sustentada. Su objetivo no es únicamente generar respuestas, sino reconocer los límites de la documentación disponible y evitar inventar artículos, sanciones, obligaciones o interpretaciones legales.
+
+## Arquitectura
+
+El sistema utiliza una arquitectura RAG que combina recuperación semántica de información con generación de lenguaje natural.
+
+Flujo general:
+
+
+         Usuario
+            |
+            v
+     Pregunta en lenguaje natural
+            |
+            v
+    Análisis y reformulación
+         de consulta
+            |
+            v
+      OpenAI Vector Store
+            |
+            v
+    Recuperación de fragmentos
+       jurídicos relevantes
+            |
+            v
+     Construcción del contexto
+            |
+            v
+      Modelo de OpenAI
+            |
+            v
+     Generación de respuesta
+            |
+            v
+    Validación de referencias
+       y fundamentación
+            |
+            v
+       Respuesta final
+
+
+### Componentes principales
+
+- **Base documental:** documentos jurídicos mexicanos almacenados en OpenAI Vector Store.
+- **Recuperación semántica:** búsqueda de fragmentos relevantes para cada consulta.
+- **Generación contextual:** modelo de lenguaje que recibe explícitamente la evidencia recuperada.
+- **Fundamentación documental:** referencias identificables mediante etiquetas como `[S1]`, `[S2]` y `[S3]`.
+- **Validación:** mecanismos para detectar referencias inexistentes y afirmaciones que exceden la evidencia disponible.
+- **Evaluación:** pruebas automatizadas para analizar la recuperación, fidelidad jurídica, calidad de las citas y capacidad de abstención.
+
+## Fuentes documentales
+
+El proyecto contempla documentación jurídica mexicana, incluyendo:
+
+- Constitución Política de los Estados Unidos Mexicanos.
+- Código Penal Federal.
+- Código Nacional de Procedimientos Penales.
+- Código de Comercio.
+- Ley Federal del Derecho de Autor.
+- Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
+- Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados.
+- Ley General del Sistema Nacional de Seguridad Pública.
+- Ley de Seguridad Nacional.
+- Tesis y criterios judiciales relacionados con privacidad, protección de datos personales y soberanía digital.
+
+La disponibilidad y vigencia de cada documento deben verificarse antes de utilizarlo como fundamento jurídico.
+
+## Principios de confiabilidad
+
+El asistente sigue criterios orientados a reducir las alucinaciones y preservar el contexto jurídico:
+
+- **Respuestas fundamentadas:** las afirmaciones jurídicas deben respaldarse con fragmentos recuperados.
+- **Citas rastreables:** cada referencia debe corresponder a una fuente disponible.
+- **Fidelidad documental:** no se debe alterar el sentido ni el alcance de los criterios jurídicos.
+- **Contexto procesal:** distinguir entre antecedentes, argumentos, actuaciones y resoluciones judiciales.
+- **Precisión normativa:** diferenciar obligaciones legales, criterios judiciales, recomendaciones y propuestas.
+- **Abstención:** reconocer cuando la documentación no contiene información suficiente.
+- **Transparencia:** no presentar inferencias como hechos jurídicos comprobados.
+
+## Evaluación
+
+El proyecto incorpora herramientas de evaluación automatizada para analizar el comportamiento del asistente mediante preguntas de prueba.
+
+Se consideran cuatro dimensiones principales:
+
+| Dimensión | Objetivo |
+|---|---|
+| Recuperación | Verificar que los fragmentos recuperados contengan evidencia suficiente. |
+| Fidelidad jurídica | Evaluar que las respuestas respeten el contenido y alcance de las fuentes. |
+| Calidad de citas | Comprobar la validez y correspondencia de las referencias documentales. |
+| Abstención | Evaluar si el asistente reconoce correctamente la falta de evidencia. |
+
+Entre los escenarios de prueba se incluyen:
+
+- Interpretación de tesis y criterios judiciales.
+- Diferenciación entre suspensiones provisionales y declaraciones de inconstitucionalidad.
+- Protección de la intimidad y difusión de contenido personal.
+- Identificación de obligaciones legales frente a recomendaciones.
+- Consultas sobre artículos y sanciones que no aparecen en las fuentes.
+- Preguntas que requieren información documental insuficiente.
+
+Para ejecutar la evaluación de documentos cortos:
+
+
+npm run evaluate:short
+
+
+Los resultados se generan en formato JSON para facilitar su inspección y comparación entre ejecuciones.
+
+## Tecnologías
+
+- **JavaScript / Node.js:** lógica del chatbot e integración de servicios.
+- **Python:** procesamiento y extracción de documentos.
+- **OpenAI API:** generación de respuestas.
+- **OpenAI Vector Store:** almacenamiento y recuperación semántica.
+- **PDF / OCR:** extracción y preparación de fuentes documentales.
+- **JSON:** metadatos, configuración y resultados de evaluación.
+
+## Configuración
+
+### Requisitos
+
+- Node.js.
+- Python 3.
+- Una cuenta y API Key de OpenAI.
+- Un Vector Store previamente configurado con los documentos jurídicos.
+
+### 1. Clonar el repositorio
+
+
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_REPOSITORIO>
+
+
+### 2. Instalar dependencias
+
+
+npm install
+
+
+### 3. Configurar variables de entorno
+
+Crear un archivo `.env` en la raíz del proyecto:
+
+
+OPENAI_API_KEY=tu_api_key
+OPENAI_VECTOR_STORE_ID=tu_vector_store_id
+OPENAI_MODEL=gpt-4o-mini
+
+
+Los nombres de las variables deben coincidir con los utilizados por la implementación.
+
+**Importante:** nunca subir archivos `.env`, claves de API ni credenciales al repositorio.
+
+### 4. Ejecutar el proyecto
+
+Consulta los scripts disponibles en `package.json` para iniciar el chatbot y ejecutar las herramientas de evaluación.
+
+## Estructura del proyecto
+
+La organización puede variar conforme evolucione el desarrollo. Los principales componentes contemplados son:
+
+
+.
+├── resource/              # Documentos jurídicos originales
+├── metadata/              # Metadatos y archivos procesados
+├── scripts/
+│   ├── extraer_texto.py   # Extracción de texto y OCR
+│   └── evaluate_short_pdfs.mjs
+├── package.json
+├── .env                   
+└── README.md
+
+
+## Estado del proyecto
+
+Proyecto en desarrollo.
+
+Las principales líneas de trabajo son:
+
+- Mejorar la recuperación contextual de documentos.
+- Fortalecer la validación de citas y afirmaciones jurídicas.
+- Ampliar los escenarios de evaluación.
+- Reducir respuestas no sustentadas.
+- Mejorar la capacidad de abstención ante evidencia insuficiente.
+- Optimizar la trazabilidad de las fuentes documentales.
+
+## Limitaciones
+
+Este proyecto es una herramienta experimental de consulta documental y no sustituye la asesoría de un abogado ni constituye una opinión jurídica profesional.
+
+La calidad de las respuestas depende de la integridad, vigencia y pertinencia de los documentos disponibles, así como de la calidad de los fragmentos recuperados.
+
+Una respuesta generada por inteligencia artificial debe verificarse contra sus fuentes originales antes de utilizarse para tomar decisiones legales.
+
+---
+
+**Desarrollado como proyecto de investigación y desarrollo en inteligencia artificial aplicada al análisis de documentación jurídica mexicana.**
